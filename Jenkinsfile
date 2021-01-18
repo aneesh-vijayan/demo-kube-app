@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'jenkinslocal' }
     stages {
         stage('Example Build') {
             steps {
