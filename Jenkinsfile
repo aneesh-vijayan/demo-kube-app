@@ -1,9 +1,21 @@
 pipeline {
     agent { label 'jenkinslocal' }
     stages {
-        stage('Example Build') {
+        stage('Docker Build') {
             steps {
                 sh 'sudo docker build -t my-php-app .'
+            }
+        }
+        stage('Docker Push') {
+            steps {
+                sh 'sudo docker tag my-php-app gcr.io/gcp-training-281204/my-php-app'
+                sh 'sudo docker push gcr.io/gcp-training-281204/my-php-app'
+            }
+        }
+        stage('Helm deploy') {
+            steps {
+                sh 'sudo cd helm'
+                sh 'sudo helm install my-php-app my-php-app -n demoapp'
             }
         }
     }
