@@ -15,7 +15,7 @@ pipeline {
         stage('Helm deploy') {
             steps {
                 sh 'sudo cd helm'
-                sh 'sudo helm install my-php-app my-php-app -n demoapp'
+                sh 'sudo /usr/local/bin/helm install my-php-app my-php-app -n demoapp'
             }
         }
     }
