@@ -2,7 +2,8 @@
 
 ## Creting the kubernetes cluster
 
-
+cd terraform
+terraform apply
 
 ## Installing MySQL Database
 
